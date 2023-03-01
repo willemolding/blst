@@ -36,6 +36,9 @@ force-adx = []
 # Suppress multi-threading.
 # Engaged on wasm32 target architecture automatically.
 threads = ["dep:threadpool"]
+# If the -ffreestanding flag should be set on build
+# to build for non standard library environments (e.g. Wasm, MIPS)
+freestanding = []
 
 [build-dependencies]
 cc = "1.0"

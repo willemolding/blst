@@ -131,7 +131,7 @@ fn main() {
         .flag_if_supported("-fno-builtin")
         .flag_if_supported("-Wno-unused-function")
         .flag_if_supported("-Wno-unused-command-line-argument");
-    if target_arch.eq("wasm32") {
+    if cfg!(feature = "freestanding") {
         cc.flag_if_supported("-ffreestanding");
     }
     if !cfg!(debug_assertions) {
