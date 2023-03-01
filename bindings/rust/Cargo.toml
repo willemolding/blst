@@ -35,7 +35,7 @@ portable = []
 force-adx = []
 # Suppress multi-threading.
 # Engaged on wasm32 target architecture automatically.
-no-threads = []
+threads = ["dep:threadpool"]
 
 [build-dependencies]
 cc = "1.0"
@@ -44,9 +44,7 @@ glob = "0.3"
 
 [dependencies]
 zeroize = { version = "^1.1", features = ["zeroize_derive"] }
-
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-threadpool = "^1.8.1"
+threadpool = { version = "^1.8.1", optional = true }
 
 [dev-dependencies]
 rand = "0.7"

@@ -20,7 +20,7 @@ trait ThreadPoolExt {
         F: FnOnce() + Send + 'any;
 }
 
-#[cfg(not(feature = "no-threads"))]
+#[cfg(feature = "threads")]
 mod mt {
     use super::*;
     use core::mem::transmute;
@@ -55,7 +55,7 @@ mod mt {
     }
 }
 
-#[cfg(feature = "no-threads")]
+#[cfg(not(feature = "threads"))]
 mod mt {
     use super::*;
 
